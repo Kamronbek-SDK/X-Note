@@ -40,4 +40,8 @@ class Database {
     final db = await dataB();
     await db.delete('note', where: 'id = ?', whereArgs: [id]);
   }
+  static Future<void> deleteAll() async {
+    final db = await dataB();
+    await db.delete('note');
+  }
 }
