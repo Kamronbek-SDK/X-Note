@@ -83,8 +83,8 @@ class _NotePageState extends State<NotePage> {
   }
 
   void _save() {
-    String title = _controller1.text;
-    if (_controller1.text.isEmpty) {
+    String title = _controller2.text;
+    if (_controller2.text.isEmpty) {
       final indexOfSpace = _controller2.text.indexOf(" ");
       final word = _controller2.text.substring(0, indexOfSpace);
       title = word;
@@ -95,7 +95,8 @@ class _NotePageState extends State<NotePage> {
             title: title,
             desc: _controller2.text,
             time: formatter.format(DateTime.now()),
-            colorId: colorInt))
+            colorId: colorInt
+        ))
         .then((value) {
       Navigator.of(context).pushAndRemoveUntil(
           CupertinoPageRoute(builder: (context) => const HomePage()),

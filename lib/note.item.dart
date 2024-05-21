@@ -13,6 +13,7 @@ class NoteItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onLongPress: click,
+        borderRadius: BorderRadius.circular(15),
       child: Ink(
         decoration: BoxDecoration(
           color: NoteColors.colors[note.colorId].withOpacity(.8),
