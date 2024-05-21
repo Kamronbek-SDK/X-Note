@@ -36,9 +36,8 @@ class _HomePageState extends State<HomePage> {
         title: const Text('X Note'),
         actions: [
           IconButton(
-              onPressed: () {
-                Database.deleteAll();
-              },
+              onPressed: () {},
+              padding: const EdgeInsets.only(bottom: 1),
               icon: const Icon(
                 CupertinoIcons.delete,
                 color: Colors.red,
@@ -46,16 +45,19 @@ class _HomePageState extends State<HomePage> {
           )
         ],
         bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(50),
-            child: SearchBar(
-              onChanged: (v) => _search(v),
-              controller: _controller,
-              hintText: 'Search',
-              hintStyle: MaterialStateProperty.all(
-                const TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.bold),
+            preferredSize: const Size.fromHeight(55),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: SearchBar(
+                onChanged: (v) => _search(v),
+                controller: _controller,
+                hintText: 'Search',
+                hintStyle: MaterialStateProperty.all(
+                  const TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+                elevation: MaterialStateProperty.all(2),
               ),
-              elevation: MaterialStateProperty.all(2),
             )),
       ),
       body: Padding(
@@ -79,10 +81,7 @@ class _HomePageState extends State<HomePage> {
                   return NoteItem(note: _noteList[index], click: () => _dialog(_noteList[index].id));
                 },
               );
-            }  else if(snapshot.data?.isEmpty == true) {
-              return const Center(child: Text("No data."));
-            }
-            else {
+            } else {
               return const Center(child: Text('No data'));
             }
           },

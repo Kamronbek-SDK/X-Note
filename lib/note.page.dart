@@ -51,8 +51,7 @@ class _NotePageState extends State<NotePage> {
                 style: const TextStyle(
                     fontSize: 18,
                     color: Colors.white,
-                    fontWeight: FontWeight.bold
-                ),
+                    fontWeight: FontWeight.bold),
                 decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: "Title",
@@ -67,8 +66,7 @@ class _NotePageState extends State<NotePage> {
                   maxLines: null,
                   style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
-                      border: InputBorder.none, hintText: "Description"
-                  ),
+                      border: InputBorder.none, hintText: "Description"),
                 ),
               )
             ],
@@ -81,27 +79,23 @@ class _NotePageState extends State<NotePage> {
             Icons.palette_outlined,
             color: Colors.black,
           ),
-        )
-    );
+        ));
   }
 
   void _save() {
     String title = _controller1.text;
     if (_controller1.text.isEmpty) {
       final indexOfSpace = _controller2.text.indexOf(" ");
-      final word =
-          _controller2.text.substring(0, indexOfSpace);
+      final word = _controller2.text.substring(0, indexOfSpace);
       title = word;
     }
-    final formatter = DateFormat("dd/MM/yyyy");
+    final formatter = DateFormat("dd/mm/yyyy");
     Database.saveNote(Note(
             id: null,
             title: title,
             desc: _controller2.text,
             time: formatter.format(DateTime.now()),
-            colorId: colorInt
-    )
-    )
+            colorId: colorInt))
         .then((value) {
       Navigator.of(context).pushAndRemoveUntil(
           CupertinoPageRoute(builder: (context) => const HomePage()),
@@ -155,10 +149,8 @@ class _NotePageState extends State<NotePage> {
               borderRadius: BorderRadius.circular(50),
               border: Border.all(
                   width: 2,
-                  color: colorInt == index
-                      ? Colors.white
-                      : Colors.transparent)
-          ),
+                  color:
+                      colorInt == index ? Colors.white : Colors.transparent)),
         ),
       ),
     );

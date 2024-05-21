@@ -29,12 +29,12 @@ class Note {
 
 class NoteColors {
   static List<Color> colors= [
+    Colors.indigo,
     Colors.blue,
     Colors.red,
     Colors.purple,
     Colors.orange,
     Colors.green,
-    Colors.indigo,
     Colors.grey,
     Colors.brown
   ];

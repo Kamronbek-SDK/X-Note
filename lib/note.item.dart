@@ -15,12 +15,14 @@ class NoteItem extends StatelessWidget {
       onLongPress: click,
       child: Ink(
         decoration: BoxDecoration(
-          color: NoteColors.colors[note.colorId],
+          color: NoteColors.colors[note.colorId].withOpacity(.8),
           borderRadius: BorderRadius.circular(15)
         ),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(note.title, style: const TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),),
             Text(note.desc),
